@@ -37,6 +37,11 @@ class ProductsTable extends Table
         $this->setPrimaryKey('id');
 
         $this->addBehavior('Timestamp');
+
+        $this->hasMany('Items', [
+            'foreignKey' => 'jancode',
+        ]);
+
     }
 
     /**
