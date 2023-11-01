@@ -44,6 +44,11 @@ class ItemsTable extends Table
             'foreignKey' => 'user_id',
             'joinType' => 'INNER',
         ]);
+
+        $this->belongsTo('Products', [
+            'foreignKey' => 'jancode',
+            'joinType' => 'INNER',
+        ]);
     }
 
     /**
