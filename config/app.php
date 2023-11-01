@@ -261,7 +261,8 @@ return [
     'Datasources' => [
         'default' => [
             'className' => Connection::class,
-            'driver' => Mysql::class,
+            //'driver' => Mysql::class,
+            'driver' => 'Cake\Database\Driver\Sqlite',
             'persistent' => false,
             'host' => 'localhost',
             /*
@@ -280,7 +281,8 @@ return [
              * You do not need to set this flag to use full utf-8 encoding (internal default since CakePHP 3.6).
              */
             //'encoding' => 'utf8mb4',
-            'timezone' => 'UTC',
+            //'timezone' => 'UTC',
+            'timezone' => 'Asia/Tokyo',
             'flags' => [],
             'cacheMetadata' => true,
             'log' => false,
@@ -312,15 +314,25 @@ return [
          */
         'test' => [
             'className' => Connection::class,
-            'driver' => Mysql::class,
+            //'driver' => Mysql::class,
+            //'driver' => Sqlite::class,
+            'driver' => 'Cake\Database\Driver\Sqlite',            
             'persistent' => false,
             'host' => 'localhost',
             //'port' => 'non_standard_port_number',
+            // for Mysql
+            /** 
             'username' => 'my_app',
             'password' => 'secret',
             'database' => 'test_myapp',
+            */
+            // for Sqlite
+            'username' => '',
+            'password' => '',
+            'database' => ROOT . DS . 'db' . DS . 'test_myapp.db',
             //'encoding' => 'utf8mb4',
-            'timezone' => 'UTC',
+            //'timezone' => 'UTC',
+            'timezone' => 'Asia/Tokyo',            
             'cacheMetadata' => true,
             'quoteIdentifiers' => false,
             'log' => false,
