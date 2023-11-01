@@ -56,7 +56,7 @@ class ProductsTable extends Table
             ->allowEmptyString('id', null, 'create');
 
         $validator
-            ->integer('jancode')
+            ->scalar('jancode')
             ->allowEmptyString('jancode')
             ->add('jancode', 'unique', ['rule' => 'validateUnique', 'provider' => 'table']);
 

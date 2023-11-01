@@ -64,7 +64,7 @@ class ItemsTable extends Table
             ->allowEmptyString('id', null, 'create');
 
         $validator
-            ->integer('jancode')
+            ->scalar('jancode')
             ->requirePresence('jancode', 'create')
             ->notEmptyString('jancode');
 
