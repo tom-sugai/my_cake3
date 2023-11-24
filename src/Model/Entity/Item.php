@@ -8,15 +8,17 @@ use Cake\ORM\Entity;
  *
  * @property int $id
  * @property int $user_id
- * @property int $product_id
  * @property string $category
+ * @property string $jancode
  * @property string $pname
- * @property string $store
+ * @property string|null $brand
+ * @property string|null $store
+ * @property string|null $image
+ * @property string|null $site
  * @property string|null $created
  * @property string|null $modified
  *
  * @property \App\Model\Entity\User $user
- * @property \App\Model\Entity\Product $product
  */
 class Item extends Entity
 {
@@ -31,13 +33,15 @@ class Item extends Entity
      */
     protected $_accessible = [
         'user_id' => true,
-        'product_id' => true,
         'category' => true,
+        'jancode' => true,
         'pname' => true,
+        'brand' => true,
         'store' => true,
+        'image' => true,
+        'site' => true,
         'created' => true,
         'modified' => true,
         'user' => true,
-        'product' => true,
     ];
 }

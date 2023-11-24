@@ -10,7 +10,6 @@ use Cake\Validation\Validator;
  * Items Model
  *
  * @property \App\Model\Table\UsersTable&\Cake\ORM\Association\BelongsTo $Users
- * @property \App\Model\Table\ProductsTable&\Cake\ORM\Association\BelongsTo $Products
  *
  * @method \App\Model\Entity\Item get($primaryKey, $options = [])
  * @method \App\Model\Entity\Item newEntity($data = null, array $options = [])
@@ -45,10 +44,6 @@ class ItemsTable extends Table
             'foreignKey' => 'user_id',
             'joinType' => 'INNER',
         ]);
-        $this->belongsTo('Products', [
-            'foreignKey' => 'product_id',
-            'joinType' => 'INNER',
-        ]);
     }
 
     /**
@@ -65,18 +60,32 @@ class ItemsTable extends Table
 
         $validator
             ->scalar('category')
-            ->requirePresence('category', 'create')
-            ->notEmptyString('category');
+            ->allowEmptyString('category');
+
+        $validator
+            ->scalar('jancode')
+            ->requirePresence('jancode', 'create')
+            ->notEmptyString('jancode');
 
         $validator
             ->scalar('pname')
-            ->requirePresence('pname', 'create')
-            ->notEmptyString('pname');
+            ->allowEmptyString('pname');
+
+        $validator
+            ->scalar('brand')
+            ->allowEmptyString('brand');
 
         $validator
             ->scalar('store')
-            ->requirePresence('store', 'create')
-            ->notEmptyString('store');
+            ->allowEmptyString('store');
+
+        $validator
+            ->scalar('image')
+            ->allowEmptyFile('image');
+
+        $validator
+            ->scalar('site')
+            ->allowEmptyString('site');
 
         return $validator;
     }
@@ -91,7 +100,6 @@ class ItemsTable extends Table
     public function buildRules(RulesChecker $rules)
     {
         $rules->add($rules->existsIn(['user_id'], 'Users'));
-        $rules->add($rules->existsIn(['product_id'], 'Products'));
 
         return $rules;
     }

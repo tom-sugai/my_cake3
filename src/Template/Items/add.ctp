@@ -10,8 +10,6 @@
         <li><?= $this->Html->link(__('List Items'), ['action' => 'index']) ?></li>
         <li><?= $this->Html->link(__('List Users'), ['controller' => 'Users', 'action' => 'index']) ?></li>
         <li><?= $this->Html->link(__('New User'), ['controller' => 'Users', 'action' => 'add']) ?></li>
-        <li><?= $this->Html->link(__('List Products'), ['controller' => 'Products', 'action' => 'index']) ?></li>
-        <li><?= $this->Html->link(__('New Product'), ['controller' => 'Products', 'action' => 'add']) ?></li>
     </ul>
 </nav>
 <div class="items form large-9 medium-8 columns content">
@@ -20,10 +18,13 @@
         <legend><?= __('Add Item') ?></legend>
         <?php
             echo $this->Form->control('user_id', ['options' => $users]);
-            echo $this->Form->control('product_id', ['options' => $products]);
             echo $this->Form->control('category');
+            echo $this->Form->control('jancode');
             echo $this->Form->control('pname');
+            echo $this->Form->control('brand');
             echo $this->Form->control('store');
+            echo $this->Form->control('image');
+            echo $this->Form->control('site');
         ?>
     </fieldset>
     <?= $this->Form->button(__('Submit')) ?>

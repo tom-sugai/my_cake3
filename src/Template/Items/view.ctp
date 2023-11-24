@@ -4,6 +4,8 @@
  * @var \App\Model\Entity\Item $item
  */
 ?>
+<!--<iframe src="https://www.janken.jp/gadgets/jan/JanSyohinKensaku.php" width="600" hight="300"></iframe>-->
+<iframe src="https://www.janken.jp/goods/jk_catalog_syosai.php?jan=<?= $item->jancode ?>"  width="720" height="230"></iframe>    
 <nav class="large-3 medium-4 columns" id="actions-sidebar">
     <ul class="side-nav">
         <li class="heading"><?= __('Actions') ?></li>
@@ -13,8 +15,6 @@
         <li><?= $this->Html->link(__('New Item'), ['action' => 'add']) ?> </li>
         <li><?= $this->Html->link(__('List Users'), ['controller' => 'Users', 'action' => 'index']) ?> </li>
         <li><?= $this->Html->link(__('New User'), ['controller' => 'Users', 'action' => 'add']) ?> </li>
-        <li><?= $this->Html->link(__('List Products'), ['controller' => 'Products', 'action' => 'index']) ?> </li>
-        <li><?= $this->Html->link(__('New Product'), ['controller' => 'Products', 'action' => 'add']) ?> </li>
     </ul>
 </nav>
 <div class="items view large-9 medium-8 columns content">
@@ -23,10 +23,6 @@
         <tr>
             <th scope="row"><?= __('User') ?></th>
             <td><?= $item->has('user') ? $this->Html->link($item->user->name, ['controller' => 'Users', 'action' => 'view', $item->user->id]) : '' ?></td>
-        </tr>
-        <tr>
-            <th scope="row"><?= __('Product') ?></th>
-            <td><?= $item->has('product') ? $this->Html->link($item->product->id, ['controller' => 'Products', 'action' => 'view', $item->product->id]) : '' ?></td>
         </tr>
         <tr>
             <th scope="row"><?= __('Id') ?></th>
@@ -38,12 +34,28 @@
         <?= $this->Text->autoParagraph(h($item->category)); ?>
     </div>
     <div class="row">
+        <h4><?= __('Jancode') ?></h4>
+        <?= $this->Text->autoParagraph(h($item->jancode)); ?>
+    </div>
+    <div class="row">
         <h4><?= __('Pname') ?></h4>
         <?= $this->Text->autoParagraph(h($item->pname)); ?>
     </div>
     <div class="row">
+        <h4><?= __('Brand') ?></h4>
+        <?= $this->Text->autoParagraph(h($item->brand)); ?>
+    </div>
+    <div class="row">
         <h4><?= __('Store') ?></h4>
         <?= $this->Text->autoParagraph(h($item->store)); ?>
+    </div>
+    <div class="row">
+        <h4><?= __('Image') ?></h4>
+        <?= $this->Text->autoParagraph(h($item->image)); ?>
+    </div>
+    <div class="row">
+        <h4><?= __('Site') ?></h4>
+        <?= $this->Text->autoParagraph(h($item->site)); ?>
     </div>
     <div class="row">
         <h4><?= __('Created') ?></h4>

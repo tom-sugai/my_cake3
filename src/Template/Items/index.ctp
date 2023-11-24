@@ -10,8 +10,6 @@
         <li><?= $this->Html->link(__('New Item'), ['action' => 'add']) ?></li>
         <li><?= $this->Html->link(__('List Users'), ['controller' => 'Users', 'action' => 'index']) ?></li>
         <li><?= $this->Html->link(__('New User'), ['controller' => 'Users', 'action' => 'add']) ?></li>
-        <li><?= $this->Html->link(__('List Products'), ['controller' => 'Products', 'action' => 'index']) ?></li>
-        <li><?= $this->Html->link(__('New Product'), ['controller' => 'Products', 'action' => 'add']) ?></li>
     </ul>
 </nav>
 <div class="items index large-9 medium-8 columns content">
@@ -20,8 +18,11 @@
         <thead>
             <tr>
                 <th scope="col"><?= $this->Paginator->sort('id') ?></th>
+                <th scope="col"><?= "Image" ?></th>
+                <th scope="col"><?= "Jancode" ?></th>
+                <th scope="col"><?= "Category" ?></th>
+                <th scope="col"><?= "Name" ?></th>
                 <th scope="col"><?= $this->Paginator->sort('user_id') ?></th>
-                <th scope="col"><?= $this->Paginator->sort('product_id') ?></th>
                 <th scope="col" class="actions"><?= __('Actions') ?></th>
             </tr>
         </thead>
@@ -29,8 +30,11 @@
             <?php foreach ($items as $item): ?>
             <tr>
                 <td><?= $this->Number->format($item->id) ?></td>
+                <td><img src="<?= $item->image ?>" alt="product-img"><br/></td>
+                <td><?= $item-> jancode ?>
+                <td><?= $item-> category ?>
+                <td><?= $item-> pname ?>
                 <td><?= $item->has('user') ? $this->Html->link($item->user->name, ['controller' => 'Users', 'action' => 'view', $item->user->id]) : '' ?></td>
-                <td><?= $item->has('product') ? $this->Html->link($item->product->id, ['controller' => 'Products', 'action' => 'view', $item->product->id]) : '' ?></td>
                 <td class="actions">
                     <?= $this->Html->link(__('View'), ['action' => 'view', $item->id]) ?>
                     <?= $this->Html->link(__('Edit'), ['action' => 'edit', $item->id]) ?>
