@@ -21,6 +21,9 @@ use Cake\Http\BaseApplication;
 use Cake\Routing\Middleware\AssetMiddleware;
 use Cake\Routing\Middleware\RoutingMiddleware;
 
+use Cake\Http\Middleware\CsrfProtectionMiddleware;
+use Cake\Http\ServerRequest;
+
 /**
  * Application setup class.
  *
@@ -60,6 +63,24 @@ class Application extends BaseApplication
      */
     public function middleware($middlewareQueue)
     {
+        // add disable CsrfProtectionMiddleware 2023-11-04 by tom
+
+        $csrf = new CsrfProtectionMiddleware([
+            'httpOnly' => true
+        ]);
+        $csrf->whitelistCallback(function (ServerRequest $request) {
+            // CSRFチェックしたくないcontrollerを指定
+            $skipedControllers = ['Items'];
+            if(in_array($request->getParam('controller'),$skipedControllers)) {
+                return true;
+            }
+            // debugkitも除外
+            if($request->getParam('plugin') == 'DebugKit') {
+                return true;
+            }
+            return $request;
+        });
+
         $middlewareQueue
             // Catch any exceptions in the lower layers,
             // and make an error page/response
