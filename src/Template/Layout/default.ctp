@@ -30,6 +30,7 @@ $cakeDescription = 'CakePHP: the rapid development php framework';
     <?= $this->Html->css('base.css') ?>
     <?= $this->Html->css('style.css') ?>
     <?= $this->Html->css('home.css') ?>
+    <?= $this->Html->css('box-test.css') ?>
 
     <?= $this->fetch('meta') ?>
     <?= $this->fetch('css') ?>
