@@ -54,10 +54,13 @@
             <tr>
                 <th scope="col"><?= __('Id') ?></th>
                 <th scope="col"><?= __('User Id') ?></th>
-                <th scope="col"><?= __('Product Id') ?></th>
                 <th scope="col"><?= __('Category') ?></th>
+                <th scope="col"><?= __('Jancode') ?></th>
                 <th scope="col"><?= __('Pname') ?></th>
+                <th scope="col"><?= __('Brand') ?></th>
                 <th scope="col"><?= __('Store') ?></th>
+                <th scope="col"><?= __('Image') ?></th>
+                <th scope="col"><?= __('Site') ?></th>
                 <th scope="col"><?= __('Created') ?></th>
                 <th scope="col"><?= __('Modified') ?></th>
                 <th scope="col" class="actions"><?= __('Actions') ?></th>
@@ -66,10 +69,13 @@
             <tr>
                 <td><?= h($items->id) ?></td>
                 <td><?= h($items->user_id) ?></td>
-                <td><?= h($items->product_id) ?></td>
                 <td><?= h($items->category) ?></td>
+                <td><?= h($items->jancode) ?></td>
                 <td><?= h($items->pname) ?></td>
+                <td><?= h($items->brand) ?></td>
                 <td><?= h($items->store) ?></td>
+                <td><?= h($items->image) ?></td>
+                <td><?= h($items->site) ?></td>
                 <td><?= h($items->created) ?></td>
                 <td><?= h($items->modified) ?></td>
                 <td class="actions">
