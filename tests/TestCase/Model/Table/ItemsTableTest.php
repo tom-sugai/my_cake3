@@ -25,7 +25,6 @@ class ItemsTableTest extends TestCase
     public $fixtures = [
         'app.Items',
         'app.Users',
-        'app.Products',
     ];
 
     /**
